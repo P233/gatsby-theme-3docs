@@ -1,0 +1,19 @@
+{
+  "name": "gatsby-theme-3docs",
+  "version": "0.1.0",
+  "description": "Gatsby theme for 3 columns documentation site.",
+  "main": "index.js",
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "documentation"
+  ],
+  "author": "Peiwen Lu <hi@peiwen.lu>",
+  "license": "MIT",
+  "dependencies": {
+    "gatsby": "^2.13.41",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
