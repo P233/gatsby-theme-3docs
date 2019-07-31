@@ -1,3 +1,5 @@
+const createMinifier = require("css-loader-minify-class");
+
 module.exports = (options = {}) => {
   return {
     plugins: [
@@ -44,6 +46,26 @@ module.exports = (options = {}) => {
           name: `pages`,
           path: `src/pages`
         }
+      },
+      {
+        resolve: `gatsby-plugin-sass`,
+        options: {
+          cssLoaderOptions:
+            process.env.NODE_ENV === `production`
+              ? {
+                  minimize: true,
+                  getLocalIdent: createMinifier()
+                }
+              : {
+                  localIdentName: `[local]`
+                }
+        }
+      },
+      {
+        resolve: `gatsby-plugin-react-svg`
+      },
+      {
+        resolve: `gatsby-plugin-react-helmet`
       }
     ]
   };
