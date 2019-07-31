@@ -2,6 +2,13 @@ const createMinifier = require("css-loader-minify-class");
 
 module.exports = (options = {}) => {
   return {
+    siteMetadata: {
+      title: "Gatsby Theme 3Docs",
+      description: "Gatsby theme for 3 columns documentation site.",
+      github: "https://github.com/P233/gatsby-theme-3docs",
+      twitter: "https://twitter.com/PeiwenLu",
+      currentVersion: "0.1.0"
+    },
     plugins: [
       {
         resolve: `gatsby-plugin-mdx`,

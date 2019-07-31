@@ -1,5 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
-export const useVersionList = () => {
+
+export default () => {
   const { allMdx } = useStaticQuery(
     graphql`
       {
@@ -11,6 +12,7 @@ export const useVersionList = () => {
             edges {
               node {
                 fields {
+                  slug
                   version
                 }
               }
@@ -20,5 +22,8 @@ export const useVersionList = () => {
       }
     `
   );
-  return allMdx.group.map(i => i.edges[0].node.fields.version);
+  return allMdx.group.map(i => ({
+    version: i.edges[0].node.fields.version,
+    initPage: i.edges[0].node.fields.slug
+  }));
 };
