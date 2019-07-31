@@ -1,5 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import { useVersionList } from "../hooks/use-version-list.js";
 
 const createTocArray = rawData => {
   let toc = [];
@@ -41,7 +42,7 @@ const SidebarTOC = ({
   },
   version
 }) => {
-  const versionList = group.map(i => i.edges[0].node.fields.version);
+  const versionList = useVersionList();
   const targetVersionRawData = group[versionList.indexOf(version)].edges;
   const tocArray = createTocArray(targetVersionRawData);
 
@@ -95,8 +96,6 @@ export default props => (
         }
       }
     `}
-    render={data => (
-      <SidebarTOC data={data} version={props.version}></SidebarTOC>
-    )}
+    render={data => <SidebarTOC data={data} version={props.version} />}
   ></StaticQuery>
 );
