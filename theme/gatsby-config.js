@@ -8,8 +8,8 @@ module.exports = (options = {}) => {
         options: {
           extensions: [".mdx", ".md"],
           defaultLayouts: {
-            docs: require.resolve("./src/layouts/doc.js"),
-            default: require.resolve("./src/layouts/page.js")
+            docs: require.resolve("./src/layouts/DocLayout/index.js"),
+            default: require.resolve("./src/layouts/PageLayout/index.js")
           },
           gatsbyRemarkPlugins: [
             {

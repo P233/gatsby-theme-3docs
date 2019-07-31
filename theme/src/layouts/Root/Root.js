@@ -1,7 +1,9 @@
 import React from "react";
 import Helmet from "react-helmet";
+import Header from "../../components/Header";
+import styles from "../../styles/main.module.scss";
 
-const Root = ({ children }) => (
+export default ({ children }) => (
   <div className={styles.container}>
     <Helmet>
       <link
@@ -10,8 +12,7 @@ const Root = ({ children }) => (
       />
     </Helmet>
 
+    <Header></Header>
     <div className={styles.content}>{children}</div>
   </div>
 );
-
-export default Root;

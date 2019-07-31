@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { useVersionList } from "../hooks/use-version-list.js";
+import useVersionList from "../../hooks/use-version-list.js";
+import styles from "./SidebarTOC.module.scss";
 
 const createTocArray = rawData => {
   let toc = [];
@@ -42,8 +43,11 @@ const SidebarTOC = ({
   },
   version
 }) => {
-  const versionList = useVersionList();
-  const targetVersionRawData = group[versionList.indexOf(version)].edges;
+  const versionArray = useVersionList().reduce((a, c) => {
+    a.push(c.version);
+    return a;
+  }, []);
+  const targetVersionRawData = group[versionArray.indexOf(version)].edges;
   const tocArray = createTocArray(targetVersionRawData);
 
   const renderTOC = (list, title) => (
