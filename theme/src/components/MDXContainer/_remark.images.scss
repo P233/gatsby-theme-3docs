@@ -1,0 +1,18 @@
+.gatsby-resp-image-link {
+  $_image-offset: -($image-max-width - calc-columns-width(9)) / 2;
+  margin: 0 $_image-offset;
+  padding: rhythm(1) 0;
+  pointer-events: none;
+
+  @include responsive(desktop) {
+    margin: 0 #{-$gutter-width};
+  }
+
+  @include responsive(mobile) {
+    margin: 0 #{-$mobile-gutter-width};
+  }
+}
+
+.gatsby-resp-image-image {
+  pointer-events: auto;
+}

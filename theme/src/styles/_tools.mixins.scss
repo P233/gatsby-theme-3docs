@@ -1,0 +1,26 @@
+@mixin var($property, $name) {
+  #{$property}: map-get($vars, $name);
+  #{$property}: var(--#{$name});
+}
+
+
+@mixin responsive($key) {
+  $breakpoints: (
+    desktop: get-columns-width(12) + ($image-max-width - get-columns-width(9)) - 1,
+    tablet: get-columns-width(9) + $gutter-width * 2,
+    mobile: get-columns-width(8)
+  );
+
+  @media screen and (max-width: map-get($breakpoints, $key)) {
+    @content;
+  }
+}
+
+
+@mixin on-dark-theme {
+  @at-root {
+    :root[data-theme="dark"] & {
+      @content;
+    }
+  }
+}

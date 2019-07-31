@@ -1,1 +1,14 @@
 @import "../../styles/_common";
+
+.header {
+  display: flex;
+  padding: 0 rhythm(2);
+  
+  &__left {
+    background: red;
+  }
+
+  &__right {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,7 @@
+@function rhythm($value) {
+  @return $value * $rhythm;
+}
+
+@function calc-columns-width($n) {
+  @return $column-width * $n + $gutter-width * ($n - 1);
+}

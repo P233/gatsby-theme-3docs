@@ -1,1 +1,12 @@
 @import "../../styles/_common";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__body {
+    overflow: auto;
+    flex-grow: 1;
+  }
+}

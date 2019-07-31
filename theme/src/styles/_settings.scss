@@ -1,0 +1,52 @@
+// CSS variables
+// --------------------
+$vars: (
+  primary-text: #202020,
+  secondary-text: #4E4E4E,
+  inline-code: darken(#5E6687, 3),
+  main-bg: #FFF,
+  code-box-bg: lighten(#F5F7FF, 1),
+  code-tag-bg: darken(#F5F7FF, 1),
+  selection-bg: #FFE53B,
+  gradient-start: #21D4FD,
+  gradient-end: #B721FF,
+);
+
+
+// Font family
+// --------------------
+$font-serif: 'Noto Serif', 'Songti SC', serif;
+$font-sans: 'Noto Sans', 'Songti SC', sans-serif;
+$font-mono: 'Roboto Mono', 'Songti SC', monospace;
+
+
+// Font size
+// --------------------
+$base-font-size: 16px;
+$mobile-font-size: 14px;
+
+
+// Modular scale
+// http://www.modularscale.com/?16&px&1.067
+// --------------------
+$modularscale: (
+  base: 1rem,
+  ratio: 1.067
+);
+
+
+// Rhythm
+// --------------------
+$rhythm: .5rem;
+
+
+// Grids
+// --------------------
+$column-width: 50px;
+$gutter-width: 30px;
+$mobile-gutter-width: 15px;
+
+
+// Images
+// --------------------
+$image-max-width: 900px;

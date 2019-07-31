@@ -1,0 +1,27 @@
+h2[id],
+h3[id],
+h4[id],
+h5[id],
+h6[id] {
+  position: relative;
+  display: table;
+}
+
+.anchor {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  left: rhythm(-3.5);
+  height: rhythm(4); // Same as post headings line-height
+  opacity: 0;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDc2OCAzODQiPjxwYXRoIGQ9Ik0yODggMzIwaC05NmMtNzAuNCAwLTEyOC01Ny42LTEyOC0xMjhTMTIxLjYgNjQgMTkyIDY0aDk2YzE5LjIgMCAzMi0xMi44IDMyLTMyUzMwNy4yIDAgMjg4IDBoLTk2Qzg2LjQgMCAwIDg2LjQgMCAxOTJzODYuNCAxOTIgMTkyIDE5Mmg5NmMxOS4yIDAgMzItMTIuOCAzMi0zMnMtMTIuOC0zMi0zMi0zMnpNNTc2IDBoLTk2Yy0xOS4yIDAtMzIgMTIuOC0zMiAzMnMxMi44IDMyIDMyIDMyaDk2YzcwLjQgMCAxMjggNTcuNiAxMjggMTI4cy01Ny42IDEyOC0xMjggMTI4aC05NmMtMTkuMiAwLTMyIDEyLjgtMzIgMzJzMTIuOCAzMiAzMiAzMmg5NmMxMDUuNiAwIDE5Mi04Ni40IDE5Mi0xOTJTNjgxLjYgMCA1NzYgMHoiLz48cGF0aCBkPSJNMjI0IDE5MmMwIDE5LjIgMTIuOCAzMiAzMiAzMmgyNTZjMTkuMiAwIDMyLTEyLjggMzItMzJzLTEyLjgtMzItMzItMzJIMjU2Yy0xOS4yIDAtMzIgMTIuOC0zMiAzMnoiLz48L3N2Zz4=) no-repeat left;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @include on-dark-theme {
+    filter: invert(100);
+  }
+}

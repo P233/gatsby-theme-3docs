@@ -1,1 +1,9 @@
 @import "../../styles/_common";
+
+.pageContainer {
+  max-width: calc-columns-width(9);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: rhyhm(2);
+  padding-left: rhythm(2);
+}

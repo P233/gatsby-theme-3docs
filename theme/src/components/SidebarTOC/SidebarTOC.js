@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 import { StaticQuery, graphql } from "gatsby";
 import useVersionList from "../../hooks/use-version-list.js";
 import styles from "./SidebarTOC.module.scss";
@@ -37,12 +38,9 @@ const formatTitle = string => {
     .replace(/[-_]/g, " ");
 };
 
-const SidebarTOC = ({
-  data: {
-    allMdx: { group }
-  },
-  version
-}) => {
+const SidebarTOC = props => {
+  const version = props.version;
+  const group = props.data.allMdx.group;
   const versionArray = useVersionList().reduce((a, c) => {
     a.push(c.version);
     return a;
@@ -72,7 +70,11 @@ const SidebarTOC = ({
     </ul>
   );
 
-  return <aside>{renderTOC(tocArray)}</aside>;
+  return (
+    <aside className={classnames(styles.sidebar, props.className)}>
+      {renderTOC(tocArray)}
+    </aside>
+  );
 };
 
 export default props => (
@@ -100,6 +102,6 @@ export default props => (
         }
       }
     `}
-    render={data => <SidebarTOC data={data} version={props.version} />}
+    render={data => <SidebarTOC data={data} {...props} />}
   ></StaticQuery>
 );
