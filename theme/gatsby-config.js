@@ -71,6 +71,20 @@ module.exports = (options = {}) => {
       },
       {
         resolve: `gatsby-plugin-react-helmet`
+      },
+      {
+        resolve: `gatsby-plugin-manifest`,
+        options: {
+          name: `gatsby-theme-3docs`,
+          short_name: `3docs`,
+          start_url: `/`,
+          background_color: `#663399`,
+          theme_color: `#663399`,
+          display: `minimal-ui`
+        }
+      },
+      {
+        resolve: `gatsby-plugin-offline`
       }
     ]
   };
