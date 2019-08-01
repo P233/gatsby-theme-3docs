@@ -1,18 +1,35 @@
 @import "../../styles/_common";
 
-.sidebar {
-  line-height: rhythm(3);
-  padding: rhythm(3);
+.sidebarTOC {
+  font-size: ms(-1);
+  line-height: rhythm(2);
+  padding: rhythm(3) rhythm(2);
+}
 
-  li > ul {
-    padding-left: 1em;
+.tocEntry {
+  display: flex;
+  align-items: center;
+  padding-top: rhythm(.5);
+  padding-bottom: rhythm(.5);
+
+  &.nested {
+    padding-left: rhythm(2);
   }
 
-  li {
+  &__icon {
+    width: rhythm(2);
+    margin-right: rhythm(.25);
+    vertical-align: rhythm(-.25);
+
+    &.active {
+      transform: rotate(180deg);
+      color: map-get($vars, gradient-start);
+    }
+  }
+
+  &__body {
     overflow: hidden;
-    width: 100%;
-    padding-top: rhythm(.5);
-    padding-bottom: rhythm(.5);
+    flex-grow: 1;
     white-space: nowrap;
     text-overflow: ellipsis;
   }

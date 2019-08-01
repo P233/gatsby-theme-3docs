@@ -4,8 +4,14 @@ import MDXContainer from "../../components/MDXContainer";
 import SidebarTOC from "../../components/SidebarTOC";
 import styles from "./DocLayout.module.scss";
 
+const findVersionFromPath = path => {
+  const keywordsList = path.replace(/^\/|\/$/g, "").split("/");
+  const docsIndex = keywordsList.indexOf("docs");
+  return keywordsList[docsIndex + 1];
+};
+
 export default props => {
-  const currentVersion = props.uri.replace(/^\/|\/$/g, "").split("/")[1];
+  const currentVersion = findVersionFromPath(props.path);
   return (
     <Root>
       <div className={styles.docPageContainer}>
@@ -14,10 +20,13 @@ export default props => {
             {props.children}
           </MDXContainer>
         </div>
-        <SidebarTOC
-          className={styles.docSidebar}
-          version={currentVersion}
-        ></SidebarTOC>
+        {currentVersion && (
+          <SidebarTOC
+            className={styles.docSidebar}
+            currentVersion={currentVersion}
+            currentPath={props.path}
+          ></SidebarTOC>
+        )}
       </div>
     </Root>
   );

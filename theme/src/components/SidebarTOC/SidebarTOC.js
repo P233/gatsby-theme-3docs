@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "gatsby";
 import classnames from "classnames";
 import { StaticQuery, graphql } from "gatsby";
 import useVersionList from "../../hooks/use-version-list.js";
+import IconChevronRight from "../../assets/svg/chevron-right.svg";
+import IconChevronDown from "../../assets/svg/chevron-down.svg";
 import styles from "./SidebarTOC.module.scss";
 
 const createTocArray = rawData => {
@@ -39,31 +42,44 @@ const formatTitle = string => {
 };
 
 const SidebarTOC = props => {
-  const version = props.version;
-  const group = props.data.allMdx.group;
+  const rawDataList = props.data.allMdx.group;
   const versionArray = useVersionList().reduce((a, c) => {
     a.push(c.version);
     return a;
   }, []);
-  const targetVersionRawData = group[versionArray.indexOf(version)].edges;
+  const targetVersionDataIndex = versionArray.indexOf(props.currentVersion);
+  if (targetVersionDataIndex === -1) return null;
+
+  const targetVersionRawData = rawDataList[targetVersionDataIndex].edges;
   const tocArray = createTocArray(targetVersionRawData);
 
-  const renderTOC = (list, title) => (
+  const renderTOC = (list, title, isNested = false) => (
     <ul>
       {title && (
-        <li>
-          <strong style={{ textTransform: "capitalize" }}>
-            {formatTitle(title)}
-          </strong>
+        <li className={styles.tocEntry} style={{ textTransform: "capitalize" }}>
+          <IconChevronDown className={styles.tocEntry__icon} />
+          <span className={styles.tocEntry__body}>{formatTitle(title)}</span>
         </li>
       )}
       {list.map(i => {
         if (Array.isArray(i.list)) {
-          return <li key={i.title}>{renderTOC(i.list, i.title)}</li>;
+          return <li key={i.title}>{renderTOC(i.list, i.title, true)}</li>;
         }
         return (
           <li key={i.url}>
-            <a href={i.url}>{i.title}</a>
+            <Link
+              to={i.url}
+              className={classnames(styles.tocEntry, {
+                [styles.nested]: isNested
+              })}
+            >
+              <IconChevronRight
+                className={classnames(styles.tocEntry__icon, {
+                  [styles.active]: props.currentPath === i.url
+                })}
+              />
+              <span className={styles.tocEntry__body}>{i.title}</span>
+            </Link>
           </li>
         );
       })}
@@ -71,7 +87,7 @@ const SidebarTOC = props => {
   );
 
   return (
-    <aside className={classnames(styles.sidebar, props.className)}>
+    <aside className={classnames(styles.sidebarTOC, props.className)}>
       {renderTOC(tocArray)}
     </aside>
   );
