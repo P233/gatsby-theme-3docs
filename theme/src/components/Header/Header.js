@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import useSiteMetadata from "../../hooks/use-site-metadata.js";
 import useVersionList from "../../hooks/use-version-list.js";
 import IconGitHub from "../../assets/svg/github.svg";
@@ -8,6 +9,8 @@ import IconMoon from "../../assets/svg/moon.svg";
 import styles from "./Header.module.scss";
 
 export default props => {
+  if (typeof window === `undefined`) return null;
+
   const siteMetadata = useSiteMetadata();
   const versionList = useVersionList();
 
@@ -25,14 +28,14 @@ export default props => {
   return (
     <header className={styles.header}>
       <div className={styles.header__left}>
-        <a href="/" className={styles.headerLogo}>
+        <Link to="/" className={styles.headerLogo}>
           {siteMetadata.title}
-        </a>
+        </Link>
 
         <nav className={styles.headerNav}>
-          <a href="/" className={styles.headerNav__link}>
+          <Link to="/" className={styles.headerNav__link}>
             Home
-          </a>
+          </Link>
         </nav>
       </div>
 
@@ -43,7 +46,7 @@ export default props => {
             <ul className={styles.headerVersionDropdown__menu}>
               {versionList.map(i => (
                 <li key={i.version}>
-                  <a href={i.initPage}>{i.version}</a>
+                  <Link to={i.initPage}>{i.version}</Link>
                 </li>
               ))}
             </ul>
