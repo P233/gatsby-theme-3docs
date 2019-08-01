@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   height: rhythm(8);
+  min-height: rhythm(8);
   padding: rhythm(1) rhythm(2);
   border-bottom: 1px dashed;
   @include var(border-color, secondary-text);
