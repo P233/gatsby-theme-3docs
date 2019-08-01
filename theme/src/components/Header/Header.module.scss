@@ -2,13 +2,72 @@
 
 .header {
   display: flex;
-  padding: 0 rhythm(2);
+  align-items: center;
+  height: rhythm(8);
+  padding: rhythm(1) rhythm(2);
+  border-bottom: 1px dashed;
+  @include var(border-color, secondary-text);
   
   &__left {
-    background: red;
+    display: flex;
+    align-items: center;
   }
 
   &__right {
+    display: flex;
+    align-items: center;
     margin-left: auto;
   }
+}
+
+.headerLogo {
+  font-size: ms(3);
+  line-height: rhythm(4);
+}
+
+.headerNav {
+  margin-left: rhythm(4);
+
+  &__link {
+    &:not(:last-child) {
+	    margin-right: rhythm(2);
+    }
+  }
+}
+
+.headerVersionDropdown {
+  font-size: ms(2);
+  line-height: rhythm(3);
+  position: relative;
+  margin-right: rhythm(3);
+
+  &__menu {
+    position: absolute;
+    z-index: -100;
+    top: 100%;
+    left: rhythm(-2);
+    visibility: hidden;
+    padding: rhythm(1) rhythm(2);
+    transition: transform .35s, opacity .2s;;
+    transform: translateY(10px);
+    opacity: 0;
+    @include var(color, primary-text);
+    @include var(background, main-bg);
+
+    > li {
+      padding-top: rhythm(1);
+      padding-bottom: thythm(1);
+    }
+  }
+
+  &:hover &__menu {
+    z-index: 10;
+    visibility: visible;
+    transform: translateY(0px);
+	  opacity: 1;
+  }
+}
+
+.headerSocialLink {
+  margin-right: rhythm(2);
 }

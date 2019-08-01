@@ -2,11 +2,14 @@
 
 .docPageContainer {
   display: flex;
+  min-height: 100%;
 }
 
 .doc {
   flex: 1;
   padding: rhythm(3) rhythm(2);
+  border-right: 1px dashed;
+  @include var(border-color, secondary-text);
 
   &__body {
     max-width: calc-columns-width(9);

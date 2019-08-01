@@ -1,5 +1,4 @@
 import React from "react";
-import classnames from "classnames";
 import Helmet from "react-helmet";
 import Header from "../../components/Header";
 import "../../styles/main.scss";
@@ -15,8 +14,6 @@ export default props => (
     </Helmet>
 
     <Header></Header>
-    <div className={classnames(styles.root__body, props.bodyClassName)}>
-      {props.children}
-    </div>
+    <div className={styles.root__body}>{props.children}</div>
   </div>
 );

@@ -4,6 +4,12 @@
   font-size: ms(2);
   line-height: rhythm(4);
 
+  > h1 {
+    font-size: ms(12);
+    line-height: rhythm(6);
+    padding-top: rhythm(4);
+  }
+
   > h2 {
     font-size: ms(9);
     padding-top: rhythm(7);

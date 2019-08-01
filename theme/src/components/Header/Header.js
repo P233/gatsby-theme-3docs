@@ -25,25 +25,22 @@ export default props => {
   return (
     <header className={styles.header}>
       <div className={styles.header__left}>
-        <a href="/">{siteMetadata.title}</a>
+        <a href="/" className={styles.headerLogo}>
+          {siteMetadata.title}
+        </a>
 
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/changelog">Changelog</a>
-          </li>
-        </ul>
+        <nav className={styles.headerNav}>
+          <a href="/" className={styles.headerNav__link}>
+            Home
+          </a>
+        </nav>
       </div>
 
       <div className={styles.header__right}>
-        <div className={styles.versionDropdown}>
-          <button className={styles.versionDropdown__trigger}>
-            {siteMetadata.currentVersion}
-          </button>
+        <div className={styles.headerVersionDropdown}>
+          <button>{siteMetadata.currentVersion}</button>
           {versionList.length > 1 && (
-            <ul className={styles.versionDropdown__menu}>
+            <ul className={styles.headerVersionDropdown__menu}>
               {versionList.map(i => (
                 <li key={i.version}>
                   <a href={i.initPage}>{i.version}</a>
@@ -54,18 +51,27 @@ export default props => {
         </div>
 
         {siteMetadata.github && (
-          <a href={siteMetadata.github} className={styles.header__iconLink}>
+          <a
+            href={siteMetadata.github}
+            className={styles.headerSocialLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <IconGitHub></IconGitHub>
           </a>
         )}
         {siteMetadata.twitter && (
-          <a href={siteMetadata.twitter} className={styles.header__iconLink}>
+          <a
+            href={siteMetadata.twitter}
+            className={styles.headerSocialLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <IconTwitter></IconTwitter>
           </a>
         )}
 
         <button
-          className={styles.header__themeBtn}
           onClick={() =>
             theme === "light" ? setTheme("dark") : setTheme("light")
           }

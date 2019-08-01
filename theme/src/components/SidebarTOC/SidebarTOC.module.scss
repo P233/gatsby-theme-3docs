@@ -3,8 +3,6 @@
 .sidebar {
   line-height: rhythm(3);
   padding: rhythm(3);
-  border-left: 1px dashed;
-  @include var(border-color, secondary-text);
 
   li > ul {
     padding-left: 1em;
@@ -13,6 +11,8 @@
   li {
     overflow: hidden;
     width: 100%;
+    padding-top: rhythm(.5);
+    padding-bottom: rhythm(.5);
     white-space: nowrap;
     text-overflow: ellipsis;
   }
