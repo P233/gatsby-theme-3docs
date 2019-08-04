@@ -12,8 +12,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     value: sourceInstanceName
   });
 
+  const slug = createFilePath({ node, getNode });
   if (sourceInstanceName === "docs") {
-    const slug = createFilePath({ node, getNode });
     let parentsArray = slug
       .replace(/^\/|\/$/g, "")
       .split("/")
@@ -33,6 +33,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       name: `parents`,
       value: parentsArray
+    });
+  }
+
+  if (sourceInstanceName === "pages") {
+    actions.createNodeField({
+      node,
+      name: `slug`,
+      value: slug
     });
   }
 };

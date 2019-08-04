@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import useSiteMetadata from "hooks/use-site-metadata.js";
+import useHeaderNavList from "hooks/use-header-nav-list.js";
 import useVersionList from "hooks/use-version-list.js";
 import IconSun from "assets/svg/sun.svg";
 import IconMoon from "assets/svg/moon.svg";
@@ -14,19 +15,19 @@ const reqSocialMediaIcons = require.context(
 
 export default props => {
   if (typeof window === `undefined`) return null;
-
-  const siteMetadata = useSiteMetadata();
-  const versionList = useVersionList();
-
-  const $root = document.documentElement;
+  const $root = window.document.documentElement;
   const [theme, setThemeState] = useState(
     $root.getAttribute("data-theme") || "light"
   );
   const setTheme = name => {
     setThemeState(name);
     $root.setAttribute("data-theme", name);
-    localStorage.setItem("theme", name);
+    window.localStorage.setItem("theme", name);
   };
+
+  const siteMetadata = useSiteMetadata();
+  const headerNavList = useHeaderNavList();
+  const versionList = useVersionList();
 
   return (
     <header className={styles.header}>
@@ -36,9 +37,11 @@ export default props => {
         </Link>
 
         <nav className={styles.headerNav}>
-          <Link to="/" className={styles.headerNav__link}>
-            Home
-          </Link>
+          {headerNavList.map(i => (
+            <Link key={i.title} to={i.link} className={styles.headerNav__link}>
+              {i.title}
+            </Link>
+          ))}
         </nav>
       </div>
 
