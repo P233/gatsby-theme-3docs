@@ -22,7 +22,6 @@
     vertical-align: rhythm(-.25);
 
     &.active {
-      transform: rotate(180deg);
       color: map-get($vars, gradient-start);
     }
   }
