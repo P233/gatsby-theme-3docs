@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import useSiteMetadata from "../../hooks/use-site-metadata.js";
-import useVersionList from "../../hooks/use-version-list.js";
-import IconGitHub from "../../assets/svg/github.svg";
-import IconTwitter from "../../assets/svg/twitter.svg";
-import IconSun from "../../assets/svg/sun.svg";
-import IconMoon from "../../assets/svg/moon.svg";
+import useSiteMetadata from "hooks/use-site-metadata.js";
+import useVersionList from "hooks/use-version-list.js";
+import IconSun from "assets/svg/sun.svg";
+import IconMoon from "assets/svg/moon.svg";
 import styles from "./Header.module.scss";
+
+const reqSocialMediaIcons = require.context(
+  "assets/svg/social",
+  true,
+  /\.svg$/
+);
 
 export default props => {
   if (typeof window === `undefined`) return null;
@@ -18,7 +22,6 @@ export default props => {
   const [theme, setThemeState] = useState(
     $root.getAttribute("data-theme") || "light"
   );
-
   const setTheme = name => {
     setThemeState(name);
     $root.setAttribute("data-theme", name);
@@ -53,32 +56,19 @@ export default props => {
           )}
         </div>
 
-        {siteMetadata.github && (
+        {siteMetadata.socialMedia.map(i => (
           <a
-            href={siteMetadata.github}
+            key={i.name}
+            href={i.link}
             className={styles.headerSocialLink}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconGitHub></IconGitHub>
+            {reqSocialMediaIcons(`./${i.name.toLowerCase()}.svg`)()}
           </a>
-        )}
-        {siteMetadata.twitter && (
-          <a
-            href={siteMetadata.twitter}
-            className={styles.headerSocialLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <IconTwitter></IconTwitter>
-          </a>
-        )}
+        ))}
 
-        <button
-          onClick={() =>
-            theme === "light" ? setTheme("dark") : setTheme("light")
-          }
-        >
+        <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
           {theme === "light" ? <IconMoon></IconMoon> : <IconSun></IconSun>}
         </button>
       </div>
