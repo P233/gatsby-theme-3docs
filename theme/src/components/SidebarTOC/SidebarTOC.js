@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import classnames from "classnames";
 import useDocsToc from "hooks/use-docs-toc.js";
-import IconChevronDown from "assets/svg/chevron-down.svg";
-import IconChevronRight from "assets/svg/chevron-right.svg";
-import IconChevronsLeft from "assets/svg/chevrons-left.svg";
+import IconChevronDown from "assets/icons/chevron-down.svg";
+import IconChevronRight from "assets/icons/chevron-right.svg";
 import styles from "./SidebarTOC.module.scss";
 
 export default props => {
@@ -37,13 +36,10 @@ export default props => {
                 [styles.nested]: isNested
               })}
             >
-              {props.currentPath === i.url ? (
-                <IconChevronsLeft
-                  className={classnames(styles.tocEntry__icon, styles.active)}
-                />
-              ) : (
-                <IconChevronRight className={styles.tocEntry__icon} />
-              )}
+              <IconChevronRight
+                className={styles.tocEntry__icon}
+                activeClassName={styles.active}
+              />
               <span className={styles.tocEntry__body}>{i.title}</span>
             </Link>
           </li>
@@ -52,5 +48,9 @@ export default props => {
     </ul>
   );
 
-  return <aside className={styles.sidebarTOC}>{renderTOC(tocArray)}</aside>;
+  return (
+    <aside className={classnames(styles.sidebarTOC, props.className)}>
+      {renderTOC(tocArray)}
+    </aside>
+  );
 };

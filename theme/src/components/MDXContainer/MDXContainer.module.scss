@@ -1,6 +1,6 @@
-@import "../../styles/_common";
+@import "_common";
 
-.mdx {
+.mdxContainer {
   font-size: ms(2);
   line-height: rhythm(4);
 
@@ -31,10 +31,6 @@
 
   a {
     text-decoration: underline;
-
-    // &:not([aria-label]):hover {
-    //   @extend %gradient-link;
-    // }
   }
 
   ul,
@@ -75,7 +71,7 @@
 }
 
 
-.mdx {
+.mdxContainer {
   :global {
     @import "remark.autolink";
     @import "remark.images";

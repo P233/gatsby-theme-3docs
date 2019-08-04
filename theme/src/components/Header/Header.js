@@ -3,15 +3,11 @@ import { Link } from "gatsby";
 import useSiteMetadata from "hooks/use-site-metadata.js";
 import useHeaderNavList from "hooks/use-header-nav-list.js";
 import useVersionList from "hooks/use-version-list.js";
-import IconSun from "assets/svg/sun.svg";
-import IconMoon from "assets/svg/moon.svg";
+import IconSun from "assets/icons/sun.svg";
+import IconMoon from "assets/icons/moon.svg";
 import styles from "./Header.module.scss";
 
-const reqSocialMediaIcons = require.context(
-  "assets/svg/social",
-  true,
-  /\.svg$/
-);
+const reqSocialMediaIcons = require.context("assets/brands", true, /\.svg$/);
 
 export default props => {
   if (typeof window === `undefined`) return null;
@@ -38,7 +34,12 @@ export default props => {
 
         <nav className={styles.headerNav}>
           {headerNavList.map(i => (
-            <Link key={i.title} to={i.link} className={styles.headerNav__link}>
+            <Link
+              key={i.title}
+              to={i.link}
+              className={styles.headerNav__link}
+              activeClassName={styles.active}
+            >
               {i.title}
             </Link>
           ))}

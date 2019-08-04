@@ -3,7 +3,7 @@ import classnames from "classnames";
 import styles from "./MDXContainer.module.scss";
 
 export default props => (
-  <article className={classnames(styles.mdx, props.className)}>
+  <article className={classnames(styles.mdxContainer, props.className)}>
     {props.children}
   </article>
 );

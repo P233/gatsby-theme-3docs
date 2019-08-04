@@ -1,23 +1,29 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import SidebarTOC from "../../components/SidebarTOC";
+import Root from "layouts/Root";
+import Header from "components/Header";
+import SidebarTOC from "components/SidebarTOC";
+import MDXContainer from "components/MDXContainer";
 import styles from "./DocTemplate.module.scss";
 
 export default props => (
-  <div className={styles.docPageContainer}>
-    <div className={styles.doc}>
-      <MDXRenderer
-        className={styles.doc__body}
-        children={props.data.mdx.body}
-      />
+  <Root>
+    <div className={styles.docPage}>
+      <Header />
+      <div className={styles.docPage__body}>
+        <main className="docPage__content">
+          <MDXContainer className={styles.docBody}>
+            <MDXRenderer children={props.data.mdx.body} />
+          </MDXContainer>
+        </main>
+        <SidebarTOC
+          className={styles.docPage__docsTOC}
+          currentVersion={props.data.mdx.fields.version}
+        ></SidebarTOC>
+      </div>
     </div>
-    <SidebarTOC
-      className={styles.docSidebar}
-      currentVersion={props.data.mdx.fields.version}
-      currentPath={props.path}
-    ></SidebarTOC>
-  </div>
+  </Root>
 );
 
 export const pageQuery = graphql`

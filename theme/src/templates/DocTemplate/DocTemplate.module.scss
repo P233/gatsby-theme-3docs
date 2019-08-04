@@ -1,24 +1,38 @@
-@import "../../styles/_common";
+@import "_common";
 
-.docPageContainer {
+.docPage {
   display: flex;
-  min-height: 100%;
-}
-
-.doc {
-  flex: 1;
-  padding: rhythm(3) rhythm(2);
-  border-right: 1px dashed;
-  @include var(border-color, secondary-text);
+  flex-direction: column;
+  height: 100vh;
 
   &__body {
-    max-width: calc-columns-width(9);
-    margin-right: auto;
-    margin-left: auto;
+    display: flex;
+    overflow: hidden;
+    flex-grow: 1;
+  }
+
+  &__content {
+    overflow: auto;
+    flex-grow: 1;
+  }
+
+  &__contentTOC {
+    // TODO
+  }
+
+  &__contentTOC,
+  &__docsTOC {
+    overflow: auto;
+    flex-grow: 0;
+    width: rhythm(30);
+    border-left: 1px dashed;
+    @include var(border-color, secondary-text);
   }
 }
 
-.docSidebar {
-  flex-grow: 0;
-  width: 240px;
+.docBody {
+  max-width: calc-columns-width(9);
+  margin-right: auto;
+  margin-left: auto;
+  padding: rhythm(3) rhythm(2);
 }

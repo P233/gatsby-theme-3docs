@@ -1,9 +1,9 @@
-@import "../../styles/_common";
+@import "_common";
 
 .header {
   display: flex;
   align-items: center;
-  height: rhythm(8);
+  min-width: 100%;
   min-height: rhythm(8);
   padding: rhythm(1) rhythm(2);
   border-bottom: 1px dashed;
@@ -32,6 +32,10 @@
   &__link {
     &:not(:last-child) {
 	    margin-right: rhythm(2);
+    }
+
+    &.active {
+      color: map-get($vars, gradient-start);
     }
   }
 }
@@ -70,5 +74,7 @@
 }
 
 .headerSocialLink {
+  width: rhythm(3);
+  height: rhythm(3);
   margin-right: rhythm(2);
 }

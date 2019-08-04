@@ -1,3 +1,4 @@
+const path = require("path");
 const createMinifier = require("css-loader-minify-class");
 
 const defaultOptions = {
@@ -69,6 +70,9 @@ module.exports = options => {
       {
         resolve: "gatsby-plugin-sass",
         options: {
+          includePaths: [
+            path.dirname(require.resolve("./src/styles/__common.scss"))
+          ],
           cssLoaderOptions:
             process.env.NODE_ENV === "production"
               ? {
