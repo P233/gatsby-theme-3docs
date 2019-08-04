@@ -1,6 +1,12 @@
 const createMinifier = require("css-loader-minify-class");
 
-module.exports = (options = {}) => {
+const defaultOptions = {
+  pageLayout: require.resolve("./src/layouts/PageLayout/index.js")
+};
+
+module.exports = options => {
+  options = { ...defaultOptions, ...options };
+
   return {
     siteMetadata: {
       title: "Gatsby Theme 3Docs",
@@ -13,8 +19,7 @@ module.exports = (options = {}) => {
         options: {
           extensions: [".mdx", ".md"],
           defaultLayouts: {
-            docs: require.resolve("./src/layouts/DocLayout/index.js"),
-            default: require.resolve("./src/layouts/PageLayout/index.js")
+            pages: options.pageLayout
           },
           gatsbyRemarkPlugins: [
             {
@@ -42,7 +47,7 @@ module.exports = (options = {}) => {
         resolve: `gatsby-source-filesystem`,
         options: {
           name: `docs`,
-          path: `src/pages/docs`
+          path: `src/docs`
         }
       },
       {
