@@ -7,6 +7,7 @@ export default () => {
         siteMetadata {
           title
           description
+          author
           currentVersion
           socialMedia {
             name

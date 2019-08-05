@@ -21,7 +21,9 @@ module.exports = options => {
     siteMetadata: {
       title: "Gatsby Theme 3Docs",
       description: "Gatsby theme for 3 columns documentation site.",
-      currentVersion: "0.1.0"
+      author: "@PeiwenLu",
+      currentVersion: "0.1.0",
+      lang: "en"
     },
     plugins: [
       {
