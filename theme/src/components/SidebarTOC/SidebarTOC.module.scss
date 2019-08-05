@@ -20,11 +20,6 @@
     width: rhythm(2);
     margin-right: rhythm(.25);
     vertical-align: rhythm(-.25);
-
-    &.active {
-      transform: rotate(180deg);
-      color: map-get($vars, gradient-start);
-    }
   }
 
   &__body {
@@ -32,5 +27,10 @@
     flex-grow: 1;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  &.active &__icon {
+    transform: rotate(180deg);
+    color: map-get($vars, gradient-start);
   }
 }

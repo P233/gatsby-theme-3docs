@@ -35,11 +35,9 @@ export default props => {
               className={classnames(styles.tocEntry, {
                 [styles.nested]: isNested
               })}
+              activeClassName={styles.active}
             >
-              <IconChevronRight
-                className={styles.tocEntry__icon}
-                activeClassName={styles.active}
-              />
+              <IconChevronRight className={styles.tocEntry__icon} />
               <span className={styles.tocEntry__body}>{i.title}</span>
             </Link>
           </li>

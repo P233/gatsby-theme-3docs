@@ -32,7 +32,7 @@ export default targetVersion => {
     {
       allMdx(
         filter: { fields: { sourceInstanceName: { eq: "docs" } } }
-        sort: { fields: frontmatter___chapterStringIndex, order: ASC }
+        sort: { fields: frontmatter___chapterOrderString, order: ASC }
       ) {
         group(field: fields___version) {
           edges {
