@@ -1,0 +1,36 @@
+@import "_common";
+
+.contentTOC {
+  font-size: ms(-1);
+  line-height: rhythm(2);
+  padding: rhythm(3) rhythm(2);
+  user-select: none;
+
+  li > ul {
+    padding-left: rhythm(2);
+  }
+}
+
+.tocEntry {
+  display: flex;
+  align-items: center;
+  padding-top: rhythm(.5);
+  padding-bottom: rhythm(.5);
+
+  &.title {
+    margin-left: rhythm(-2);
+  }
+
+  &__icon {
+    width: rhythm(2);
+    margin-right: rhythm(.25);
+    vertical-align: rhythm(-.25);
+  }
+
+  &__body {
+    overflow: hidden;
+    flex-grow: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

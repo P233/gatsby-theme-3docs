@@ -4,7 +4,7 @@ import classnames from "classnames";
 import useDocsToc from "hooks/use-docs-toc.js";
 import IconChevronDown from "assets/icons/chevron-down.svg";
 import IconChevronRight from "assets/icons/chevron-right.svg";
-import styles from "./SidebarTOC.module.scss";
+import styles from "./DocsTOC.module.scss";
 
 export default props => {
   const tocArray = useDocsToc(props.currentVersion);
@@ -19,9 +19,14 @@ export default props => {
   const renderTOC = (list, title, isNested = false) => (
     <ul>
       {title && (
-        <li className={styles.tocEntry} style={{ textTransform: "capitalize" }}>
-          <IconChevronDown className={styles.tocEntry__icon} />
-          <span className={styles.tocEntry__body}>{formatTitle(title)}</span>
+        <li>
+          <div
+            className={classnames(styles.tocEntry, styles.title)}
+            style={{ textTransform: "capitalize" }}
+          >
+            <IconChevronDown className={styles.tocEntry__icon} />
+            <span className={styles.tocEntry__body}>{formatTitle(title)}</span>
+          </div>
         </li>
       )}
       {list.map(i => {
@@ -32,9 +37,7 @@ export default props => {
           <li key={i.url}>
             <Link
               to={i.url}
-              className={classnames(styles.tocEntry, {
-                [styles.nested]: isNested
-              })}
+              className={styles.tocEntry}
               activeClassName={styles.active}
             >
               <IconChevronRight className={styles.tocEntry__icon} />
@@ -47,7 +50,7 @@ export default props => {
   );
 
   return (
-    <aside className={classnames(styles.sidebarTOC, props.className)}>
+    <aside className={classnames(styles.docsTOC, props.className)}>
       {renderTOC(tocArray)}
     </aside>
   );

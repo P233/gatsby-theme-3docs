@@ -4,7 +4,8 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import Root from "layouts/Root";
 import SEO from "components/SEO";
 import Header from "components/Header";
-import SidebarTOC from "components/SidebarTOC";
+import DocsTOC from "components/DocsTOC";
+import ContentTOC from "components/ContentTOC";
 import MDXContainer from "components/MDXContainer";
 import styles from "./DocTemplate.module.scss";
 
@@ -23,10 +24,14 @@ export default props => {
               <MDXRenderer children={mdx.body} />
             </MDXContainer>
           </main>
-          <SidebarTOC
+          <ContentTOC
+            className={styles.docPage__docsTOC}
+            tocArray={mdx.tableOfContents.items}
+          ></ContentTOC>
+          <DocsTOC
             className={styles.docPage__docsTOC}
             currentVersion={mdx.fields.version}
-          ></SidebarTOC>
+          ></DocsTOC>
         </div>
       </div>
     </Root>
@@ -43,6 +48,7 @@ export const pageQuery = graphql`
         title
       }
       body
+      tableOfContents(maxDepth: 3)
     }
   }
 `;

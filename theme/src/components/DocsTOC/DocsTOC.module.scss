@@ -1,9 +1,14 @@
 @import "_common";
 
-.sidebarTOC {
+.docsTOC {
   font-size: ms(-1);
   line-height: rhythm(2);
   padding: rhythm(3) rhythm(2);
+  user-select: none;
+
+  li > ul {
+    padding-left: rhythm(2);
+  }
 }
 
 .tocEntry {
@@ -12,8 +17,8 @@
   padding-top: rhythm(.5);
   padding-bottom: rhythm(.5);
 
-  &.nested {
-    padding-left: rhythm(2);
+  &.title {
+    margin-left: rhythm(-2);
   }
 
   &__icon {
