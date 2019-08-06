@@ -11,7 +11,16 @@ const defaultOptions = {
     {
       family: "Roboto"
     }
-  ]
+  ],
+  manifest: {
+    name: "gatsby-theme-3docs",
+    short_name: "3docs",
+    start_url: "/",
+    background_color: "#FFFFFF",
+    theme_color: "#000000",
+    display: "standalone",
+    icon: require.resolve("./src/assets/images/icon.png")
+  }
 };
 
 module.exports = options => {
@@ -100,14 +109,7 @@ module.exports = options => {
       },
       {
         resolve: "gatsby-plugin-manifest",
-        options: {
-          name: "gatsby-theme-3docs",
-          short_name: "3docs",
-          start_url: "/",
-          background_color: "#663399",
-          theme_color: "#663399",
-          display: "minimal-ui"
-        }
+        options: options.manifest
       },
       {
         resolve: "gatsby-plugin-offline"
