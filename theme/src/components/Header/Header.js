@@ -68,7 +68,9 @@ export default props => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {reqSocialMediaIcons(`./${i.name.toLowerCase()}.svg`)()}
+            {reqSocialMediaIcons(`./${i.name.toLowerCase()}.svg`)({
+              viewBox: "0 0 32 32"
+            })}
           </a>
         ))}
 
