@@ -19,7 +19,7 @@ export default props => {
       <div className={styles.docPage}>
         <Header />
         <div className={styles.docPage__body}>
-          <main className="docPage__content">
+          <main className={styles.docPage__content}>
             <MDXContainer className={styles.docBody}>
               <MDXRenderer children={mdx.body} />
             </MDXContainer>

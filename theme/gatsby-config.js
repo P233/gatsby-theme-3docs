@@ -91,7 +91,7 @@ module.exports = options => {
                   getLocalIdent: createMinifier()
                 }
               : {
-                  localIdentName: "[local]"
+                  localIdentName: "[local]_[hash:5]"
                 }
         }
       },
