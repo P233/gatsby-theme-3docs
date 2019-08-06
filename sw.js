@@ -26,25 +26,41 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-3d374203ede8f34eb1eb.js"
+    "url": "webpack-runtime-857c904008c4a7e0878a.js"
   },
   {
-    "url": "app-cd33b5da6fc0ba86db5d.js"
+    "url": "app-ebd5f63bb1e959e10399.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-c8a3f56c03f09b3c9ac7.js"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-2ddc4f2be8ce53782c59.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "f32980064aace64e457222e6e3661d17"
+    "revision": "f483d6eaae00bc719e1dedca97061845"
+  },
+  {
+    "url": "google-fonts/s/notoserif/v8/ga6Iaw1J5X9T9RW6j9bNfFcWaA.woff2",
+    "revision": "6e4fd5dff8891c5b0dc0a05393e04026"
+  },
+  {
+    "url": "google-fonts/s/notoserif/v8/ga6Kaw1J5X9T9RW6j9bNfFImajC7.woff2",
+    "revision": "e4df493a122848cb318898aaca64fb9c"
+  },
+  {
+    "url": "google-fonts/s/notoserif/v8/ga6Law1J5X9T9RW6j9bNdOwzfReecQ.woff2",
+    "revision": "1159294dc010b8f2be4e23976202f6e1"
+  },
+  {
+    "url": "google-fonts/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2",
+    "revision": "479970ffb74f2117317f9d24d9e317fe"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "bd7b2d873a686d9cb0b1aba93a1e9d42"
+    "revision": "609081b887909b7f55d1fa56e6712855"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "da1df3ea1718523eec4e90c91e84ce1f"
+    "revision": "537bf18834d8ac538891b939ed6ab9dc"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
