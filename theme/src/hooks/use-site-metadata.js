@@ -9,10 +9,11 @@ export default () => {
           description
           author
           currentVersion
-          socialMedia {
+          headerIconLinks {
             name
-            link
+            url
           }
+          lang
         }
       }
     }

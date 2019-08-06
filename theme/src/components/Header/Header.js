@@ -7,7 +7,7 @@ import IconSun from "assets/icons/sun.svg";
 import IconMoon from "assets/icons/moon.svg";
 import styles from "./Header.module.scss";
 
-const reqSocialMediaIcons = require.context("assets/brands", true, /\.svg$/);
+const reqIcons = require.context("assets/brands", true, /\.svg$/);
 
 export default props => {
   if (typeof window === `undefined`) return null;
@@ -60,15 +60,15 @@ export default props => {
           )}
         </div>
 
-        {siteMetadata.socialMedia.map(i => (
+        {siteMetadata.headerIconLinks.map(i => (
           <a
             key={i.name}
             href={i.link}
-            className={styles.headerSocialLink}
+            className={styles.headerIconLink}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {reqSocialMediaIcons(`./${i.name.toLowerCase()}.svg`)({
+            {reqIcons(`./${i.name.toLowerCase()}.svg`)({
               viewBox: "0 0 32 32"
             })}
           </a>

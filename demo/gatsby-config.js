@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
-    socialMedia: [
+    headerIconLinks: [
       {
         name: "github",
-        link: "https://github.com/P233/gatsby-theme-3docs"
+        url: "https://github.com/P233/gatsby-theme-3docs"
       },
       {
         name: "twitter",
-        link: "https://twitter.com/PeiwenLu"
+        url: "https://twitter.com/PeiwenLu"
       }
     ]
   },
