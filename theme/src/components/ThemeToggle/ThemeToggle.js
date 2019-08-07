@@ -9,14 +9,15 @@ export default prop => {
   const [theme, setThemeState] = useState(
     $root.getAttribute("data-theme") || "light"
   );
-  const setTheme = name => {
-    setThemeState(name);
-    $root.setAttribute("data-theme", name);
-    window.localStorage.setItem("theme", name);
+  const setTheme = () => {
+    const targetTheme = theme === "light" ? "dark" : "light";
+    setThemeState(targetTheme);
+    $root.setAttribute("data-theme", targetTheme);
+    window.localStorage.setItem("theme", targetTheme);
   };
 
   return (
-    <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+    <button onClick={setTheme}>
       {theme === "light" ? <IconMoon /> : <IconSun />}
     </button>
   );

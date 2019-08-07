@@ -5,6 +5,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type !== "Mdx") return;
 
   const { sourceInstanceName } = getNode(node.parent);
+  const slug = createFilePath({ node, getNode });
 
   actions.createNodeField({
     node,
@@ -12,7 +13,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     value: sourceInstanceName
   });
 
-  const slug = createFilePath({ node, getNode });
   if (sourceInstanceName === "docs") {
     let parentsArray = slug
       .replace(/^\/|\/$/g, "")
