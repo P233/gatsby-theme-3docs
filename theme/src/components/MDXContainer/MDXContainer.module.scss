@@ -68,6 +68,30 @@
       margin-top: rhythm(2);
     }
   }
+
+  table {
+    font-size: ms(0);
+    line-height: rhythm(3);
+    width: 100%;
+    margin-top: rhythm(3);
+    border-collapse: collapse;
+    text-align: left;
+
+    th, td {
+      padding: rhythm(1) rhythm(2);
+      border-bottom: 1px dashed;
+      @include var(border-color, secondary-text);
+
+      &:not(:last-child) {
+        border-right: 1px dashed;
+        @include var(border-color, secondary-text);
+      }
+    }
+
+    tr:last-child > td {
+      border-bottom: none;
+    }
+  }
 }
 
 
