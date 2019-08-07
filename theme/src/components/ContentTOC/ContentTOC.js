@@ -4,7 +4,7 @@ import IconChevronRight from "assets/icons/chevron-right.svg";
 import styles from "./ContentTOC.module.scss";
 
 export default props => {
-  const renderTOC = (list, isNested = false) => (
+  const renderTOC = (list = [], isNested = false) => (
     <ul>
       {list.map(i => {
         if (Array.isArray(i.items)) {

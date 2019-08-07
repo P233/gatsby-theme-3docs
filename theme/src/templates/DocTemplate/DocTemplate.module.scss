@@ -24,6 +24,7 @@
   &__docsTOC {
     overflow: auto;
     flex-grow: 0;
+    flex-shrink: 1;
     width: rhythm(30);
     border-left: 1px dashed;
     @include var(border-color, secondary-text);
