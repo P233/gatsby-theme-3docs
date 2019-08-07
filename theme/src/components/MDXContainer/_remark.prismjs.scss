@@ -9,7 +9,7 @@ Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/b
 */
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: $font-mono;
+  font-family: $fontMonoFamily;
   font-size: ms(1);
   @include var(background, code-box-bg);
 }
@@ -164,7 +164,7 @@ pre > code.highlight {
   position: relative;
 
   &::after {
-    font-family: $font-mono;
+    font-family: $fontMonoFamily;
     font-size: ms(-2);
     line-height: rhythm(3);
     position: absolute;

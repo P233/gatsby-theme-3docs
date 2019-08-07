@@ -15,29 +15,32 @@ $vars: (
 
 // Font family
 // --------------------
-$font-serif: 'Noto Serif', 'Songti SC', serif;
-$font-sans: 'Noto Sans', 'Songti SC', sans-serif;
-$font-mono: 'Roboto Mono', 'Songti SC', monospace;
+$fontSerifFamily: 'Noto Serif', 'Songti SC', serif !default;
+$fontMonoFamily: 'Roboto Mono', 'Songti SC', monospace !default;
 
 
 // Font size
 // --------------------
-$base-font-size: 16px;
-$mobile-font-size: 14px;
+$baseFontSize: 16px !default;
+$mobileFontSize: 14px !default;
 
 
 // Modular scale
 // http://www.modularscale.com/?16&px&1.067
 // --------------------
+
+$modularscaleBase: 1rem !default;
+$modularscaleRatio: 1.067 !default;
+
 $modularscale: (
-  base: 1rem,
-  ratio: 1.067
+  base: $modularscaleBase,
+  ratio: $modularscaleRatio
 );
 
 
 // Rhythm
 // --------------------
-$rhythm: .5rem;
+$rhythm: .5rem !default;
 
 
 // Grids

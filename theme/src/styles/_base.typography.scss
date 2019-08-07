@@ -19,13 +19,13 @@
     --selection-bg: #5A95CE;
   }
 
-  font: #{$base-font-size}/1 $font-serif;
+  font: #{$baseFontSize}/1 $fontSerifFamily;
   text-size-adjust: 100%;
   @include var(color, primary-text);
   @include var(background, main-bg);
 
   @include responsive(mobile) {
-    font-size: $mobile-font-size;
+    font-size: $mobileFontSize;
   }
 }
 
