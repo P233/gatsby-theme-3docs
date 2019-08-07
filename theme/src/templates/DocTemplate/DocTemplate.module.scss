@@ -14,10 +14,12 @@
   &__content {
     overflow: auto;
     flex-grow: 1;
-  }
+    order: $orderDocContent;
 
-  &__contentTOC {
-    // TODO
+    @if ($orderDocContent != 1) {
+      border-left: 1px dashed;
+      @include var(border-color, secondary-text);
+    }
   }
 
   &__contentTOC,
@@ -26,8 +28,24 @@
     flex-grow: 0;
     flex-shrink: 1;
     width: rhythm(30);
-    border-left: 1px dashed;
-    @include var(border-color, secondary-text);
+  }
+
+  &__contentTOC {
+    order: $orderContentTOC;
+
+    @if ($orderContentTOC != 1) {
+      border-left: 1px dashed;
+      @include var(border-color, secondary-text);
+    }
+  }
+
+  &__docsTOC {
+    order: $orderDocsTOC;
+
+    @if ($orderDocsTOC != 1) {
+      border-left: 1px dashed;
+      @include var(border-color, secondary-text);
+    }
   }
 }
 

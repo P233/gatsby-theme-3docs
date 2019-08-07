@@ -26,8 +26,8 @@ export default props => {
             </MDXContainer>
           </main>
           <ContentTOC
-            className={styles.docPage__docsTOC}
-            tocArray={mdx.tableOfContents.items}
+            className={styles.docPage__contentTOC}
+            tableOfContents={mdx.tableOfContents.items}
           ></ContentTOC>
           <DocsTOC
             className={styles.docPage__docsTOC}

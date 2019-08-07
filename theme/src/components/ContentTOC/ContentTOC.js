@@ -34,7 +34,7 @@ export default props => {
 
   return (
     <aside className={classnames(styles.contentTOC, props.className)}>
-      {renderTOC(props.tocArray)}
+      {renderTOC(props.tableOfContents)}
     </aside>
   );
 };
