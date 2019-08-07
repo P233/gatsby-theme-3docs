@@ -1,26 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "gatsby";
+import ThemeToggle from "components/ThemeToggle";
 import useSiteMetadata from "hooks/use-site-metadata.js";
 import useHeaderNavList from "hooks/use-header-nav-list.js";
 import useVersionList from "hooks/use-version-list.js";
-import IconSun from "assets/icons/sun.svg";
-import IconMoon from "assets/icons/moon.svg";
 import styles from "./Header.module.scss";
 
 const reqIcons = require.context("assets/brands", true, /\.svg$/);
 
 export default props => {
-  if (typeof window === `undefined`) return null;
-  const $root = window.document.documentElement;
-  const [theme, setThemeState] = useState(
-    $root.getAttribute("data-theme") || "light"
-  );
-  const setTheme = name => {
-    setThemeState(name);
-    $root.setAttribute("data-theme", name);
-    window.localStorage.setItem("theme", name);
-  };
-
   const siteMetadata = useSiteMetadata();
   const headerNavList = useHeaderNavList();
   const versionList = useVersionList();
@@ -63,7 +51,7 @@ export default props => {
         {siteMetadata.headerIconLinks.map(i => (
           <a
             key={i.name}
-            href={i.link}
+            href={i.url}
             className={styles.headerIconLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -74,9 +62,7 @@ export default props => {
           </a>
         ))}
 
-        <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-          {theme === "light" ? <IconMoon></IconMoon> : <IconSun></IconSun>}
-        </button>
+        <ThemeToggle />
       </div>
     </header>
   );

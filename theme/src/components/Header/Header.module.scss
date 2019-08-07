@@ -35,7 +35,12 @@
     }
 
     &.active {
-      color: map-get($vars, gradient-start);
+      $_color-gradient-start: map-get($vars, gradient-start);
+      $_color-gradient-end: map-get($vars, gradient-end);
+      color: $_color-gradient-start;
+      background: linear-gradient(30deg, $_color-gradient-start, $_color-gradient-end);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }
