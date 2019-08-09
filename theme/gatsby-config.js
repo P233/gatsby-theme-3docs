@@ -31,7 +31,6 @@ module.exports = options => {
       title: "Gatsby Theme 3Docs",
       description: "Gatsby theme for 3 columns documentation site.",
       author: "@PeiwenLu",
-      currentVersion: "0.1.0",
       headerIconLinks: [
         {
           name: "github",

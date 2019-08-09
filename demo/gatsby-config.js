@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    currentVersion: "0.1.0",
     headerIconLinks: [
       {
         name: "github",
