@@ -31,7 +31,7 @@ export default props => {
           ></ContentTOC>
           <DocsTOC
             className={styles.docPage__docsTOC}
-            currentVersion={mdx.fields.version}
+            targetVersion={mdx.fields.version}
           ></DocsTOC>
         </div>
       </div>

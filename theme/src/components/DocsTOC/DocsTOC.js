@@ -7,7 +7,7 @@ import IconChevronRight from "assets/icons/chevron-right.svg";
 import styles from "./DocsTOC.module.scss";
 
 export default props => {
-  const tocArray = useDocsToc(props.currentVersion);
+  const tocArray = useDocsToc(props.targetVersion);
 
   const formatTitle = string => {
     return string
