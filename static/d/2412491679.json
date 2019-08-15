@@ -1,1 +1,1 @@
-{"data":{"allMdx":{"edges":[{"node":{"frontmatter":{"title":"Home"},"fields":{"slug":"/"}}},{"node":{"frontmatter":{"title":"Changelog"},"fields":{"slug":"/changelog/"}}}]}}}
+{"data":{"allMdx":{"edges":[{"node":{"frontmatter":{"title":"Home"},"fields":{"slug":"/"}}}]}}}
